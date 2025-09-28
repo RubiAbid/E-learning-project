@@ -20,11 +20,11 @@ function App() {
           <Header />
           <Routes>
             <Route element={<PrivateRoutes />}>
-              <Route path="/" element={<Home />} />
+            <Route path="/courses" element={<Coourses />} />
               <Route path="/profile" element={<Profile />} />
             </Route>
+             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/courses" element={<Coourses />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<ErrorPage/>}/>
