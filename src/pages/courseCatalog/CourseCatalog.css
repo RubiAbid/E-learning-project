@@ -1,0 +1,92 @@
+/* Catalog Showcase */
+
+.catalog-showcase {
+  background-color: #2e57d2;
+  color: #fff;
+  padding: 2rem 0;
+}
+
+.catalog-showcase .container {
+  min-height: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.showcase-text h2 {
+  font-size: 3rem;
+  line-height: 50px;
+  margin-bottom: 2rem;
+}
+
+.showcase-text p {
+  max-width: 600px;
+  font-size: 1.1rem;
+}
+
+.catalog-showcase .container img {
+  width: 45%;
+}
+
+.catalog-showcase .container img {
+  min-height: 220px;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 600px) {
+  .catalog-showcase .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .catalog-showcase .container img {
+    width: 80%;
+  }
+}
+
+/* Courses */
+.catalog-courses{
+    padding: 1rem 0;
+}
+
+.catalog-courses .container h4{
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.courses-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+}
+
+.course-card{
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 8px;
+}
+
+.course-image{
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.course-card-content{
+    padding: 0 .5rem .5rem;
+}
+
+.course-card p{
+    color: gray;
+    font-size: .9rem;
+    font-weight: 500;
+}
+
+.course-title{
+    font-size: 1rem;
+    margin: 8px 0 16px;
+}
