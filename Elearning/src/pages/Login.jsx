@@ -1,25 +1,28 @@
-import { useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useRef } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom"; 
 import { useAuth } from "../utils/AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { user, loginUser } = useAuth();
+  const location = useLocation(); //  get previous location
+  const { loginUser } = useAuth();
   const loginForm = useRef(null);
 
-  useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, [user, navigate]);
+  //  if user came from private page, remember it
+  const from = location.state?.from?.pathname || "/";
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const email = loginForm.current.email.value;
     const password = loginForm.current.password.value;
 
     const userInfo = { email, password };
-    loginUser(userInfo);
+    try {
+      await loginUser(userInfo);
+      navigate(from, { replace: true }); //  redirect back to previous page
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (

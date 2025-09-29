@@ -42,9 +42,7 @@ const Header = () => {
             FAQ
           </NavLink>
 
-          {user ? (
-            <>
-              <NavLink
+           <NavLink
                 to="/courses"
                 className={({ isActive }) =>
                   isActive
@@ -54,6 +52,9 @@ const Header = () => {
               >
                 Courses
               </NavLink>
+
+          {user ? (
+            <>
 
               <NavLink
                 to="/profile"

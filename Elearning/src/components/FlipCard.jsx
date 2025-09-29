@@ -33,7 +33,7 @@ const FlipCard = () => {
         <div key={index} className="w-full max-w-[90%] sm:max-w-md md:max-w-lg lg:max-w-xl flex flex-col items-center">
           {/* Question Card */}
           <div
-            className="w-full p-4 bg-[#C0A18C] text-white rounded-xl shadow-lg cursor-pointer"
+            className="w-full p-4 bg-[#A05525] text-white rounded-xl shadow-lg cursor-pointer"
             onClick={() => toggleAnswer(index)}
           >
             <div className="font-bold text-base sm:text-lg md:text-xl">{item.q}</div>
@@ -43,7 +43,7 @@ const FlipCard = () => {
           <div
             className={`w-full overflow-hidden transition-all duration-500 ease-in-out ${
               activeIndex === index ? "max-h-40 mt-2 p-3" : "max-h-0 p-0"
-            } bg-white text-[#2c2c2c] rounded-lg shadow-md`}
+            } bg-[#d7bfaf] text-[#2c2c2c] rounded-lg shadow-md`}
           >
             <p className="text-sm sm:text-base">{item.a}</p>
           </div>
