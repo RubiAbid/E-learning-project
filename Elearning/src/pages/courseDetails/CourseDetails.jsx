@@ -9,13 +9,13 @@ function CourseDetails() {
 
     return (
         <div className="course-details">
-            <div className="details-hero-section bg-[#16161D] text-white">
+            <div className="details-hero-section bg-[#A05525] text-white">
                 <div className="container flex justify-between items-center py-12">
                     <div className="w-[47%]">
                         <h2 className="text-4xl font-medium mb-6">{title}</h2>
                         <p className="mb-4 max-w-xl">{description}</p>
                         <p className="text-[14px] mb-10">Created by {instructor}</p>
-                        <button className="bg-[#2649B0] px-8 py-2 font-bold cursor-pointer hover:bg-[#2648b0e8]">Enroll Now</button>
+                        <button className="bg-[#005035] text-[#FFF7F2] px-8 py-2 font-bold cursor-pointer hover:bg-[#A05525] border-[#005135] border-2 hover:border-[#005135] rounded-lg">Enroll Now</button>
                     </div>
                     <img src={imageLink} alt="" className="course-details-img w-[48%] max-h-[35z0px]" />
                 </div>

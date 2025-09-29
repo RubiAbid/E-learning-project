@@ -28,7 +28,7 @@ function CourseCatalog() {
       {/* catalog courses */}
       <div className="catalog-courses">
         <div className="container">
-          <input type="text" placeholder="Search for anything..." className=" w-3/4 p-3 rounded-md border-none outline-none ring-blue-400 ring-1 m-auto block focus:ring-2 text-[1rem] font-medium placeholder:text-gray-500 text-gray-500" value={searchValue}
+          <input type="text" placeholder="Search for anything..." className=" w-3/4 p-3 rounded-md border-none outline-none ring-[#A05525] ring-1 m-auto block focus:ring-2 text-[1rem] font-medium placeholder:text-gray-500 text-gray-500" value={searchValue}
             onChange={(e) => {
               setSearchValue(e.target.value)
               filterCoursesHandler();

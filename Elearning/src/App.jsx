@@ -11,6 +11,7 @@ import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 import ErrorPage from "./pages/ErrorPage";
 import CourseDetails from "./pages/courseDetails/CourseDetails";
+import FAQ from "./pages/FAQ";
 
 function App() {
   return (
@@ -19,14 +20,15 @@ function App() {
         <AuthProvider>
           <Header />
           <Routes>
+
             <Route element={<PrivateRoutes />}>
-              <Route path="/" element={<Home />} />
+             <Route path="/course/:id" element={<CourseDetails />} />
+             <Route path="/courses" element={<CourseCatalog />} />
               <Route path="/profile" element={<Profile />} />
             </Route>
+            <Route path="/faq" element={<FAQ/>} />
+              <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/courses" element={<CourseCatalog />} />
-            <Route path="/course/:id" element={<CourseDetails />} />
-            {/* <Route path="/contact" element={<ContactUs />} /> */}
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<ErrorPage/>}/>
           </Routes>
