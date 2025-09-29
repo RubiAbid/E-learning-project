@@ -9,7 +9,7 @@ const Footer = () => {
       <div className='bg-[#EBCDB8] w-full flex flex-col items-center justify-center py-8 gap-4 px-4 min-h-[calc(100vh-64px-84px)]'>
         {/* Logo */}
         <img 
-          src="logo1.png" 
+          src="/logo1.png" 
           alt="logo"
           className="w-44 sm:w-48 md:w-52 h-auto"
         />
@@ -59,4 +59,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default Footer;

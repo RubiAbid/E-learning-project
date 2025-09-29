@@ -12,26 +12,29 @@ import Register from "./pages/Register";
 import ErrorPage from "./pages/ErrorPage";
 import CourseDetails from "./pages/courseDetails/CourseDetails";
 import FAQ from "./pages/FAQ";
+import ScrollToTop from "./components/ScrollToTop";
+
 
 function App() {
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop />
         <AuthProvider>
           <Header />
           <Routes>
             {/* ✅ Protected Routes */}
             <Route element={<PrivateRoutes />}>
               <Route path="/profile" element={<Profile />} />
-              <Route path="/courses" element={<CourseCatalog />} />
-              <Route path="/course/:id" element={<CourseDetails />} />
+              {/* <Route path="/courses" element={<CourseCatalog />} /> */}
+              {/* <Route path="/course/:id" element={<CourseDetails />} /> */}
             </Route>
-
-            {/* ✅ Public Routes */}
-            <Route path="/faq" element={<FAQ />} />
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/courses" element={<CourseCatalog />} />
+            <Route path="/faq" element={<FAQ />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/course/:id" element={<CourseDetails />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
           <Footer />

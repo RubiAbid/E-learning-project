@@ -21,7 +21,7 @@ const Register = () => {
     const password1 = registerForm.current.password1.value;
     const password2 = registerForm.current.password2.value;
 
-    
+
     if (password1.length < 8) {
       toast.error("Password must be at least 8 characters long!");
       return;
@@ -35,13 +35,13 @@ const Register = () => {
 
     try {
       const userInfo = { name, email, password1, password2 };
-      await registerUser(userInfo); 
+      await registerUser(userInfo);
       toast.success("Account created successfully 🎉");
     } catch (error) {
       //  Stop registration if email already exists
       if (error?.message?.includes("already exists")) {
         toast.error("Email already exists. Please login instead or use another email");
-        return; 
+        return;
       }
 
       //  Handle other errors (like weak password, network error, etc.)
