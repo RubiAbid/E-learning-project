@@ -21,7 +21,7 @@ function CourseCatalog() {
             <h2>Discover new courses on CourseHub</h2>
             <p>Whether you're switching fields, advancing your skills, or just starting out — you can find the latest learning here.</p>
           </div>
-          <img src="../../public/images/catalog-course-showcase.png" alt="" />
+          <img src="/images/catalog-course-showcase.png" alt="" />
         </div>
       </div>
 
