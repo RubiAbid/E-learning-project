@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/AuthContext";
-import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
   const registerForm = useRef(null);
@@ -14,24 +14,46 @@ const Register = () => {
     }
   }, [user, navigate]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const name = registerForm.current.name.value;
     const email = registerForm.current.email.value;
     const password1 = registerForm.current.password1.value;
     const password2 = registerForm.current.password2.value;
 
-    if (password1 !== password2) {
-      alert("Passwords do not match!");
+    
+    if (password1.length < 8) {
+      toast.error("Password must be at least 8 characters long!");
       return;
     }
 
-    const userInfo = { name, email, password1, password2 };
-    registerUser(userInfo);
+    // confirm password 
+    if (password1 !== password2) {
+      toast.error("Passwords do not match!");
+      return;
+    }
+
+    try {
+      const userInfo = { name, email, password1, password2 };
+      await registerUser(userInfo); 
+      toast.success("Account created successfully 🎉");
+    } catch (error) {
+      //  Stop registration if email already exists
+      if (error?.message?.includes("already exists")) {
+        toast.error("Email already exists. Please login instead or use another email");
+        return; 
+      }
+
+      //  Handle other errors (like weak password, network error, etc.)
+      toast.error(error.message || "Registration failed. Try again.");
+    }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#FFEDE1] px-4 sm:px-6 lg:px-8">
+      {/* Toast  */}
+      <Toaster position="top-center" reverseOrder={false} />
+
       <div className="bg-white w-full max-w-md sm:max-w-lg lg:max-w-xl p-6 sm:p-8 lg:p-10 rounded-lg shadow-lg flex flex-col gap-6">
         <h1 className="text-2xl sm:text-3xl font-bold text-[#1B5241] text-center">
           Register
