@@ -1,0 +1,19 @@
+.course-details-img{
+    min-width: 350px;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 768px){
+    .details-hero-section .container{
+        flex-direction: column-reverse;
+        gap: 3rem;
+    }
+
+    .details-hero-section .container > *{
+        width: 100%;
+    }
+
+    .course-details-img{
+        max-height: 300px;
+    }
+}

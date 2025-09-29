@@ -2,11 +2,11 @@ import { FaInstagram, FaFacebookF, FaWhatsapp, FaEnvelope } from 'react-icons/fa
 
 const Footer = () => {
   return (
-    <div>
+    <div className=''>
       {/*  line */}
       <div className='w-full border-t-4 border-[#4C625B]'></div>
 
-      <div className='bg-[#EBCDB8] w-full flex flex-col items-center justify-center py-8 gap-4 px-4'>
+      <div className='bg-[#EBCDB8] w-full flex flex-col items-center justify-center py-8 gap-4 px-4 min-h-[calc(100vh-64px-84px)]'>
         {/* Logo */}
         <img 
           src="logo1.png" 
