@@ -2,21 +2,21 @@ import { NavLink } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
-    <div className="relative w-full h-[1000px] sm:h-[450px] flex items-center justify-center bg-[#FFF7F2] ">
+    <div className="relative w-full min-h-screen sm:h-[450px] flex items-center justify-center bg-[#FFF7F2] ">
       {/* Content */}
       <div className="text-center px-6 sm:px-8 md:px-12 max-w-3xl">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1B5241] mb-4 sm:mb-6">
           Unlock Your Potential with Our Courses
         </h1>
-        <p className="text-[#333] text-base sm:text-lg md:text-xl mb-6 sm:mb-8 leading-relaxed">
+        <p className="text-[#333] text-base sm:text-lg md:text-xl mb-4 sm:mb-6 leading-relaxed">
           Our courses are designed for everyone — whether you’re just starting your journey 
           or aiming to master advanced skills. Join thousands of learners{' '}
           <span className="font-semibold text-[#1B5241]">
             gaining the tools, knowledge, and confidence
           </span>{' '}
-          to achieve success in today’s fast-paced digital world.
+          to achieve success in today's fast-paced digital world.
           <br />
-          Are you ready to start?
+          <div className='mt-3 sm:text-xl md:text-2xl font-medium'>Are you ready to start?</div>
         </p>
 
         <NavLink
