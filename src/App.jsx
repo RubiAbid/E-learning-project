@@ -23,9 +23,11 @@ function App() {
         <AuthProvider>
           <Header />
           <Routes>
-
+            {/* ✅ Protected Routes */}
             <Route element={<PrivateRoutes />}>
               <Route path="/profile" element={<Profile />} />
+              {/* <Route path="/courses" element={<CourseCatalog />} /> */}
+              {/* <Route path="/course/:id" element={<CourseDetails />} /> */}
             </Route>
             <Route path="/" element={<Home />} />
             <Route path="/courses" element={<CourseCatalog />} />

@@ -9,7 +9,7 @@ const Cards = () => {
 
       <div className="flex flex-wrap justify-center gap-6 px-4">
         {/* Card 1 */}
-        <div className="relative border-2 border-[#9E572B] w-[90%] sm:w-[300px] md:w-[350px] h-[250px] sm:h-[280px] md:h-[300px] rounded-lg flex justify-center items-center shadow-md">
+        <div className="relative border-2 border-[#9E572B] hover:shadow-amber-900 w-[90%] sm:w-[300px] md:w-[350px] h-[250px] sm:h-[280px] md:h-[300px] rounded-lg flex justify-center items-center shadow-md">
           <img
             src="/pic1.jpg"
             alt="pic1"
@@ -24,7 +24,7 @@ const Cards = () => {
         </div>
 
         {/* Card 2 */}
-        <div className="relative border-2 border-[#9E572B] w-[90%] sm:w-[300px] md:w-[350px] h-[250px] sm:h-[280px] md:h-[300px] rounded-lg flex justify-center items-center shadow-md">
+        <div className="relative border-2 border-[#9E572B] hover:shadow-amber-900 w-[90%] sm:w-[300px] md:w-[350px] h-[250px] sm:h-[280px] md:h-[300px] rounded-lg flex justify-center items-center shadow-md">
           <img
             src="/pic2.jpg"
             alt="pic2"
@@ -37,7 +37,7 @@ const Cards = () => {
         </div>
 
         {/* Card 3 */}
-        <div className="relative border-2 border-[#9E572B] w-[90%] sm:w-[300px] md:w-[350px] h-[250px] sm:h-[280px] md:h-[300px] rounded-lg flex justify-center items-center shadow-md">
+        <div className="relative border-2 border-[#9E572B] hover:shadow-amber-900 w-[90%] sm:w-[300px] md:w-[350px] h-[250px] sm:h-[280px] md:h-[300px] rounded-lg flex justify-center items-center shadow-md">
           <img
             src="/pic3.jpg"
             alt="pic3"
