@@ -55,6 +55,8 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+
+
   const registerUser = async (userInfo) => {
     setLoading(true);
     try {
@@ -70,14 +72,19 @@ export const AuthProvider = ({ children }) => {
         password: userInfo.password1,
       });
 
-      console.log("SESSION:", response);
+
+
 
       // Fetch account details after login
       let accountDetails = await account.get();
       setUser(accountDetails);
-    } catch (error) {
-      console.error(error);
-    }
+    } 
+    catch (error) {
+    console.error("Registration failed:", error);
+    throw error;  //pass error to register file
+  } finally {
+    setLoading(false);
+  }
 
     setLoading(false);
   };
