@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/AuthContext";
 import toast, { Toaster } from "react-hot-toast";
 
-const Register = () => {
+const Teaching = () => {
   const registerForm = useRef(null);
   const { user, registerUser } = useAuth();
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const Register = () => {
     }
 
     try {
-      const userInfo = { name, email, role: "student", password1, password2 };
+      const userInfo = { name, email, role: "teacher", password1, password2 };
       await registerUser(userInfo);
       toast.success("Account created successfully 🎉");
     } catch (error) {
@@ -55,7 +55,7 @@ const Register = () => {
 
       <div className="bg-white w-full max-w-md sm:max-w-lg lg:max-w-xl p-6 sm:p-8 lg:p-10 rounded-lg shadow-lg flex flex-col gap-6">
         <h1 className="text-2xl sm:text-3xl font-bold text-[#1B5241] text-center">
-          Register
+          Become a Instructor
         </h1>
 
         <form ref={registerForm} onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -117,7 +117,7 @@ const Register = () => {
           <div>
             <input
               type="submit"
-              value="Register"
+              value="Sign Up"
               className="w-full bg-[#1B5241] text-white py-2 sm:py-3 rounded-md hover:bg-[#A05425] transition-colors cursor-pointer"
             />
           </div>
@@ -137,4 +137,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Teaching;

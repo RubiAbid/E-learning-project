@@ -13,6 +13,7 @@ import ErrorPage from "./pages/ErrorPage";
 import CourseDetails from "./pages/courseDetails/CourseDetails";
 import FAQ from "./pages/FAQ";
 import ScrollToTop from "./components/ScrollToTop";
+import Teaching from "./pages/Teaching";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/courses" element={<CourseCatalog />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/teaching" element={<Teaching />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/course/:id" element={<CourseDetails />} />
