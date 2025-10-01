@@ -58,14 +58,10 @@ export const AuthProvider = ({ children }) => {
       //  Only create account
       await account.create(
         ID.unique(),       // Unique ID for the user
-         userInfo.email,
-            userInfo.password1,
+        userInfo.email,
+        userInfo.password1,
         userInfo.name,
-        userInfo.role,
-       
-     
       );
-    
 
     } catch (error) {
       console.error("Registration failed:", error);

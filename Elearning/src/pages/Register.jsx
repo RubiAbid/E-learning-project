@@ -26,7 +26,8 @@ const Register = () => {
     }
 
     try {
-      const userInfo = { name, email, role: "student", password1, password2 };
+      const userInfo = { name, email, password1, password2 };
+      console.log(userInfo);
       await registerUser(userInfo);
       toast.success("Account created successfully 🎉");
 
