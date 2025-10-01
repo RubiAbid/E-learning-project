@@ -8,7 +8,7 @@ const HeroSection = () => {
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1B5241] mb-4 sm:mb-6">
           Unlock Your Potential with Our Courses
         </h1>
-        <p className="text-[#333] text-base sm:text-lg md:text-xl mb-4 sm:mb-6 leading-relaxed">
+        <div className="text-[#333] text-base sm:text-lg md:text-xl mb-4 sm:mb-6 leading-relaxed">
           Our courses are designed for everyone — whether you’re just starting your journey 
           or aiming to master advanced skills. Join thousands of learners{' '}
           <span className="font-semibold text-[#1B5241]">
@@ -17,7 +17,7 @@ const HeroSection = () => {
           to achieve success in today's fast-paced digital world.
           <br />
           <div className='mt-3 sm:text-xl md:text-2xl font-medium'>Are you ready to start?</div>
-        </p>
+        </div>
 
         <NavLink
           to="/courses"
