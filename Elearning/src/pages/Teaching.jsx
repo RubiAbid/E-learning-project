@@ -33,7 +33,7 @@ const Teaching = () => {
     }
 
     try {
-      const userInfo = { name, email, role: "teacher", password1, password2 };
+      const userInfo = { name, email, password1, password2 };
       await registerUser(userInfo);
       toast.success("Account created successfully 🎉");
     } catch (error) {
