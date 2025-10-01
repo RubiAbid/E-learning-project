@@ -1,18 +1,12 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/AuthContext";
 import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
   const registerForm = useRef(null);
-  const { user, registerUser } = useAuth();
+  const { registerUser } = useAuth(); 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, [user, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +20,6 @@ const Register = () => {
       return;
     }
 
-    // confirm password 
     if (password1 !== password2) {
       toast.error("Passwords do not match!");
       return;
@@ -36,21 +29,20 @@ const Register = () => {
       const userInfo = { name, email, role: "student", password1, password2 };
       await registerUser(userInfo);
       toast.success("Account created successfully 🎉");
+
+      // redirect to login page after successful registration
+      navigate("/login");
     } catch (error) {
-      //  Stop registration if email already exists
       if (error?.message?.includes("already exists")) {
         toast.error("Email already exists. Please login instead or use another email");
         return;
       }
-
-      //  Handle other errors (like weak password, network error, etc.)
       toast.error(error.message || "Registration failed. Try again.");
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#FFEDE1] px-4 sm:px-6 lg:px-8">
-      {/* Toast  */}
       <Toaster position="top-center" reverseOrder={false} />
 
       <div className="bg-white w-full max-w-md sm:max-w-lg lg:max-w-xl p-6 sm:p-8 lg:p-10 rounded-lg shadow-lg flex flex-col gap-6">
@@ -61,9 +53,7 @@ const Register = () => {
         <form ref={registerForm} onSubmit={handleSubmit} className="flex flex-col gap-4">
           {/* Name */}
           <div className="flex flex-col">
-            <label className="text-sm sm:text-base font-medium text-gray-700 mb-1">
-              Name
-            </label>
+            <label className="text-sm sm:text-base font-medium text-gray-700 mb-1">Name</label>
             <input
               required
               type="text"
@@ -75,9 +65,7 @@ const Register = () => {
 
           {/* Email */}
           <div className="flex flex-col">
-            <label className="text-sm sm:text-base font-medium text-gray-700 mb-1">
-              Email
-            </label>
+            <label className="text-sm sm:text-base font-medium text-gray-700 mb-1">Email</label>
             <input
               required
               type="email"
@@ -89,9 +77,7 @@ const Register = () => {
 
           {/* Password */}
           <div className="flex flex-col">
-            <label className="text-sm sm:text-base font-medium text-gray-700 mb-1">
-              Password
-            </label>
+            <label className="text-sm sm:text-base font-medium text-gray-700 mb-1">Password</label>
             <input
               type="password"
               name="password1"
@@ -102,9 +88,7 @@ const Register = () => {
 
           {/* Confirm Password */}
           <div className="flex flex-col">
-            <label className="text-sm sm:text-base font-medium text-gray-700 mb-1">
-              Confirm Password
-            </label>
+            <label className="text-sm sm:text-base font-medium text-gray-700 mb-1">Confirm Password</label>
             <input
               type="password"
               name="password2"
@@ -125,10 +109,7 @@ const Register = () => {
 
         <p className="text-center text-sm sm:text-base text-gray-600 mt-4">
           Already have an account?{" "}
-          <Link
-            to="/login"
-            className="text-[#A05525] font-medium hover:underline"
-          >
+          <Link to="/login" className="text-[#A05525] font-medium hover:underline">
             Login
           </Link>
         </p>

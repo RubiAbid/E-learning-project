@@ -16,38 +16,34 @@ export const AuthProvider = ({ children }) => {
   const loginUser = async (userInfo) => {
     setLoading(true);
     try {
-      //  It checks if a session already exists
+      // If already logged in, return that session
       try {
         let currentSession = await account.get();
         console.log("Already logged in:", currentSession);
         setUser(currentSession);
         setLoading(false);
         return;
-      } catch (err) {
+      } catch {
         console.log("No active session, creating a new one...");
       }
 
-      // Create new session if not logged in
-      let response = await account.createEmailPasswordSession({
-        email: userInfo.email,
-        password: userInfo.password,
-      });
-
-      console.log("SESSION:", response);
+      // Create new session
+      await account.createEmailPasswordSession(userInfo.email, userInfo.password);
 
       // Fetch account details after login
       let accountDetails = await account.get();
       setUser(accountDetails);
     } catch (error) {
       console.error("Login failed:", error);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const logoutUser = async () => {
     setLoading(true);
     try {
-      await account.deleteSession({ sessionId: "current" });
+      await account.deleteSession("current");
       setUser(null);
     } catch (error) {
       console.error("Logout failed:", error);
@@ -59,39 +55,33 @@ export const AuthProvider = ({ children }) => {
   const registerUser = async (userInfo) => {
     setLoading(true);
     try {
-      let response = await account.create({
-        userId: ID.unique(),       // Unique ID for the user
-        name: userInfo.name,
-        email: userInfo.email,
-        role: userInfo.role,
-        password: userInfo.password1,
-      });
+      //  Only create account
+      await account.create(
+        ID.unique(),       // Unique ID for the user
+        userInfo.email,
+        userInfo.password1,
+        userInfo.name
+      );
 
-      await account.createEmailPasswordSession({
-        email: userInfo.email,
-        password: userInfo.password1,
-      });
+    
 
-      // Fetch account details after login
-      let accountDetails = await account.get();
-      setUser(accountDetails);
-    }
-    catch (error) {
+    } catch (error) {
       console.error("Registration failed:", error);
-      throw error;  //pass error to register file
+      throw error; // pass error to Register.js
     } finally {
       setLoading(false);
     }
-    // setLoading(false);
   };
 
   const checkUserStatus = async () => {
     try {
       let accountDetails = await account.get();
       setUser(accountDetails);
-    } catch (error) { }
-
-    setLoading(false);
+    } catch {
+      // no active session
+    } finally {
+      setLoading(false);
+    }
   };
 
   const contextData = {
