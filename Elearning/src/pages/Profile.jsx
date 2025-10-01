@@ -1,27 +1,29 @@
-import { useParams } from "react-router-dom";
-import { courses } from "../data/courses";
-import { enrollments } from "../data/enrollments";
 import { useAuth } from "../utils/AuthContext";
 import { useEffect, useState } from "react";
+import { getUserEnrollments } from "../services/CourseServices";
+import { courses } from "../data/courses";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const { user } = useAuth();
-  const { id } = useParams();
-
   const [enrolledCourses, setEnrolledCourses] = useState([]);
 
-  useEffect(() => getUserEnrollments(id), [])
+  useEffect(() => {
+    if (user) {
+      loadEnrollments(user.$id);
+    }
+  }, [user]);
 
-  function getUserEnrollments(userId) {
-    const userEnrollments = enrollments.filter(enrollmentObj => {
-      return enrollmentObj.userId == userId
-    });
-
-    const enrolledCourses = userEnrollments.map(obj => {
-      return courses.find(courseObj => courseObj.id == obj.courseId)
-    })
-
-    setEnrolledCourses(enrolledCourses);
+  async function loadEnrollments(userId) {
+    try {
+      const enrollments = await getUserEnrollments(userId);
+      const courseList = enrollments.map(enrollment =>
+        courses.find(course => course.id == enrollment.courseId)
+      );
+      setEnrolledCourses(courseList);
+    } catch (err) {
+      console.error("❌ Error fetching enrollments:", err);
+    }
   }
 
   return (
@@ -29,9 +31,9 @@ const Profile = () => {
       {/* header */}
       <div className="header container flex justify-between items-center gap-4 py-2">
         <h2 className="text-xl sm:text-3xl font-bold text-[#1B5241]">
-          Welcome back, {user.name}
+          Welcome back, {user?.name}
         </h2>
-        <p className="text-[#004F35] font-medium sm:text-lg lg:text-xl">{user.email}</p>
+        <p className="text-[#004F35] font-medium sm:text-lg lg:text-xl">{user?.email}</p>
       </div>
 
       {/* learning */}
@@ -41,25 +43,32 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="container">
-        <h4 className="text-[#245241]">Enrolled Courses</h4>
-        <div className="courses-grid">
-          {enrolledCourses.map((course, index) => {
-            const { imageLink, instructor, title, type } = course;
-            return (
-              <div key={index} className="course-card">
-                <img src={imageLink} alt="" className="course-image" />
-                <div className="course-card-content">
-                  <p className="course-instructor">{instructor}</p>
-                  <h5 className="course-title">{title}</h5>
-                  <p className="course-type">{type}</p>
-                </div>
-              </div>
-            )
-          })}
+      <div className="container my-8">
+        <h4 className="text-[#245241] mb-4 text-xl font-semibold">Enrolled Courses</h4>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {enrolledCourses.length > 0 ? (
+            enrolledCourses.map((course, index) => {
+              if (!course) return null;
+              const { imageLink, title, instructor, id } = course;
+              return (
+                <Link
+                  key={index}
+                  to={`/course-video/${id}`} // link to video page
+                  className="block border rounded-lg shadow hover:shadow-lg transition overflow-hidden"
+                >
+                  <img src={imageLink} alt={title} className="w-full h-48 object-cover" />
+                  <div className="p-4 bg-white">
+                    <h5 className="font-bold text-lg">{title}</h5>
+                    <p className="text-gray-600">{instructor}</p>
+                  </div>
+                </Link>
+              );
+            })
+          ) : (
+            <p className="text-center font-bold text-xl mt-10">No courses enrolled yet.</p>
+          )}
         </div>
       </div>
-
     </div>
   );
 };

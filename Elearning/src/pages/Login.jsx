@@ -19,7 +19,7 @@ const Login = () => {
     const userInfo = { email, password };
     try {
       await loginUser(userInfo);
-      navigate(from, { replace: true }); //  redirect back to previous page
+      navigate("/profile", { replace: true }); //  redirect back to previous page
     } catch (error) {
       console.error(error.message);
     }
