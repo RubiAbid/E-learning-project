@@ -58,10 +58,12 @@ export const AuthProvider = ({ children }) => {
       //  Only create account
       await account.create(
         ID.unique(),       // Unique ID for the user
+         userInfo.email,
+            userInfo.password1,
         userInfo.name,
         userInfo.role,
-        userInfo.email,
-        userInfo.password1,
+       
+     
       );
     
 
