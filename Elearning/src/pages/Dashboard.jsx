@@ -4,7 +4,7 @@ import { enrollments } from "../data/enrollments";
 import { useAuth } from "../utils/AuthContext";
 import { useEffect, useState } from "react";
 
-const Profile = () => {
+const Dashboard = () => {
   const { user } = useAuth();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -30,20 +30,28 @@ const Profile = () => {
       {/* header */}
       <div className="header container flex justify-between items-center gap-4 py-2">
         <h2 className="text-xl sm:text-3xl font-bold text-[#1B5241]">
-          Welcome back, {user.name}
+          Welcome Instructor, {user.name}
         </h2>
         <p className="text-[#004F35] font-medium sm:text-lg lg:text-xl">{user.email}</p>
       </div>
 
+      <hr className="my-4 text-[#2452414e]" />
+
       {/* learning */}
-      <div className="cover bg-[#A05525] text-white min-h-32 flex items-center">
-        <div className="container">
-          <h3 className="text-2xl font-bold">My Learning</h3>
-        </div>
+      <div className="cover container">
+        <h3 className="text-[#245241] text-2xl font-medium py-4">Create your course here...</h3>
+        <form className="w-full">
+          <input type="text" placeholder="Enter title" className="px-2 py-1 rounded-md outline-none border border-gray-500 w-full mb-2" />
+          <input type="text" placeholder="Enter description" className="px-2 py-1 rounded-md outline-none border border-gray-500 w-full mb-2" />
+          <input type="text" placeholder="Enter image link" className="px-2 py-1 rounded-md outline-none border border-gray-500 w-full mb-2" />
+          <input type="submit" value="Create" className="border bg-[#A05525] rounded-lg px-4 py-2 text-white font-semibold hover:bg-[#a05425e5] hover:text-white transition cursor-pointer mt-2" />
+        </form>
       </div>
 
+      <hr className="my-4 text-[#2452414e]" />
+
       <div className="container user-courses pb-4">
-        <h4 className="text-[#245241] text-xl font-medium py-4">Enrolled Courses</h4>
+        <h4 className="text-[#245241] text-xl font-medium py-4">My Courses</h4>
         {enrolledCourses.length ? (
           <div className="courses-grid">
             {enrolledCourses.map((course, index) => {
@@ -72,4 +80,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Dashboard;

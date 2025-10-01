@@ -14,6 +14,7 @@ import CourseDetails from "./pages/courseDetails/CourseDetails";
 import FAQ from "./pages/FAQ";
 import ScrollToTop from "./components/ScrollToTop";
 import Teaching from "./pages/Teaching";
+import Dashboard from "./pages/Dashboard";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             {/* ✅ Protected Routes */}
             <Route element={<PrivateRoutes />}>
               <Route path="/profile/:id" element={<Profile />} />
+              <Route path="/dashboard/:id" element={<Dashboard />} />
               {/* <Route path="/courses" element={<CourseCatalog />} /> */}
               {/* <Route path="/course/:id" element={<CourseDetails />} /> */}
             </Route>
