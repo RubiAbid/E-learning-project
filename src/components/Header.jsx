@@ -69,16 +69,29 @@ const Header = () => {
               Profile
             </NavLink>
           ) : (
-            <NavLink
-              to="/register"
-              className={({ isActive }) =>
-                isActive
-                  ? `${linkStyle} text-[#004F35]`
-                  : `${linkStyle} text-[#A05525] hover:text-[#004F35]`
-              }
-            >
-              Register
-            </NavLink>
+            <>
+              <NavLink
+                to="/teaching"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${linkStyle} text-[#004F35]`
+                    : `${linkStyle} text-[#A05525] hover:text-[#004F35]`
+                }
+              >
+                Teaching
+              </NavLink>
+
+              <NavLink
+                to="/register"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${linkStyle} text-[#004F35]`
+                    : `${linkStyle} text-[#A05525] hover:text-[#004F35]`
+                }
+              >
+                Register
+              </NavLink>
+            </>
           )}
 
           {user ? (

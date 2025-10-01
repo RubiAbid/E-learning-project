@@ -47,7 +47,7 @@ export const AuthProvider = ({ children }) => {
   const logoutUser = async () => {
     setLoading(true);
     try {
-      await account.deleteSession({ sessionId: "current" }); 
+      await account.deleteSession({ sessionId: "current" });
       setUser(null);
     } catch (error) {
       console.error("Logout failed:", error);
@@ -56,16 +56,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-
-
   const registerUser = async (userInfo) => {
     setLoading(true);
     try {
       let response = await account.create({
         userId: ID.unique(),       // Unique ID for the user
-        email: userInfo.email,
-        password: userInfo.password1,
         name: userInfo.name,
+        email: userInfo.email,
+        role: userInfo.role,
+        password: userInfo.password1,
       });
 
       await account.createEmailPasswordSession({
@@ -73,28 +72,24 @@ export const AuthProvider = ({ children }) => {
         password: userInfo.password1,
       });
 
-
-
-
       // Fetch account details after login
       let accountDetails = await account.get();
       setUser(accountDetails);
-    } 
+    }
     catch (error) {
-    console.error("Registration failed:", error);
-    throw error;  //pass error to register file
-  } finally {
-    setLoading(false);
-  }
-
-    setLoading(false);
+      console.error("Registration failed:", error);
+      throw error;  //pass error to register file
+    } finally {
+      setLoading(false);
+    }
+    // setLoading(false);
   };
 
   const checkUserStatus = async () => {
     try {
       let accountDetails = await account.get();
       setUser(accountDetails);
-    } catch (error) {}
+    } catch (error) { }
 
     setLoading(false);
   };
@@ -108,7 +103,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={contextData}>
-      {loading ? <Loader/>: children}
+      {loading ? <Loader /> : children}
     </AuthContext.Provider>
   );
 };
