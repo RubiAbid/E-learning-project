@@ -26,7 +26,7 @@ function App() {
           <Routes>
             {/* ✅ Protected Routes */}
             <Route element={<PrivateRoutes />}>
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/profile/:id" element={<Profile />} />
               {/* <Route path="/courses" element={<CourseCatalog />} /> */}
               {/* <Route path="/course/:id" element={<CourseDetails />} /> */}
             </Route>
