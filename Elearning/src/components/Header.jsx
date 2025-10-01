@@ -71,7 +71,7 @@ const Header = () => {
             </NavLink>
           ) : (
             <>
-              <NavLink
+              {/* <NavLink
                 to="/teaching"
                 className={({ isActive }) =>
                   isActive
@@ -80,7 +80,7 @@ const Header = () => {
                 }
               >
                 Teaching
-              </NavLink>
+              </NavLink> */}
 
               <NavLink
                 to="/register"
