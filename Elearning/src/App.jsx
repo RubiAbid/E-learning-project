@@ -15,7 +15,7 @@ import FAQ from "./pages/FAQ";
 import ScrollToTop from "./components/ScrollToTop";
 import Teaching from "./pages/Teaching";
 import Dashboard from "./pages/Dashboard";
-
+import CourseVideo from "./pages/CourseVideo";
 
 function App() {
   return (
@@ -27,8 +27,10 @@ function App() {
           <Routes>
             {/* ✅ Protected Routes */}
             <Route element={<PrivateRoutes />}>
-              <Route path="/profile/:id" element={<Profile />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="/dashboard/:id" element={<Dashboard />} />
+              <Route path="/course-video/:id" element={<CourseVideo />} />
+
               {/* <Route path="/courses" element={<CourseCatalog />} /> */}
               {/* <Route path="/course/:id" element={<CourseDetails />} /> */}
             </Route>

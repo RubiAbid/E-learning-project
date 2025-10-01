@@ -60,7 +60,7 @@ const Header = () => {
 
           {user ? (
             <NavLink
-              to={`/profile/${user.$id}`}
+              to={`/profile`}
               className={({ isActive }) =>
                 isActive
                   ? `${linkStyle} text-[#004F35]`

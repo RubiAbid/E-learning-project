@@ -7,7 +7,8 @@ export const courses = [
         price: 64.99,
         categories: ["Computer Science", "Software Development"],
         imageLink: "https://d15cw65ipctsrr.cloudfront.net/6a/c05066a6c844d88417b4f10e0c1d20/600x600px_586281171.jpg",
-        type: "Specialization"
+        type: "Specialization",
+        videoLink: "https://www.youtube.com/embed/O2gerCxEXvc"
     },
     {
         id: 2,
@@ -17,7 +18,8 @@ export const courses = [
         price: 19.99,
         categories: ["Programming Languages", "Software Development", "Java"],
         imageLink: "https://img-c.udemycdn.com/course/240x135/24823_963e_14.jpg",
-        type: "Course"
+        type: "Course",
+        videoLink: "https://www.youtube.com/embed/eIrMbAQSU34"
     },
     {
         id: 3,
@@ -27,7 +29,8 @@ export const courses = [
         price: 19.99,
         categories: ["Web Development", "JavaScript"],
         imageLink: "https://img-c.udemycdn.com/course/240x135/851712_fc61_6.jpg",
-        type: "Course"
+        type: "Course",
+        videoLink: "https://www.youtube.com/embed/UJFG7RRtZMc"
     },
     {
         id: 4,
@@ -37,7 +40,8 @@ export const courses = [
         price: 19.99,
         categories: ["Programming Languages", "Software Development", "Python"],
         imageLink: "https://img-c.udemycdn.com/course/240x135/567828_67d0.jpg",
-        type: "Course"
+        type: "Course",
+        videoLink: "https://www.youtube.com/embed/bqAU2k8JQa8?si=KnRU-n7ZEzmQSH--"
     },
     {
         id: 5,
@@ -47,7 +51,8 @@ export const courses = [
         price: 19.99,
         categories: ["Business", "Business Essentials"],
         imageLink: "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/03/7dde2089ff4ac69eefab0da3515fef/AIRS-Logo-Vector-600x600.png?auto=format%2C%20compress%2C%20enhance&dpr=1&w=320&h=180&fit=crop&q=50",
-        type: "Professional Certificate"
+        type: "Professional Certificate",
+        videoLink: "https://www.youtube.com/embed/O2uTtTpdZTI?si=pg_qpowZljYeaNQw"
     },
     {
         id: 6,
@@ -57,7 +62,8 @@ export const courses = [
         price: 19.99,
         categories: ["Programming Languages", "Software Development", "Python"],
         imageLink: "https://img-c.udemycdn.com/course/240x135/543600_64d1_4.jpg",
-        type: "Course"
+        type: "Course",
+        videoLink: "https://www.youtube.com/embed/1F_OgqRuSdI?si=rRk2_293ba-FmElF"
     },
     {
         id: 7,
@@ -67,7 +73,8 @@ export const courses = [
         price: 19.99,
         categories: ["Business", "Business Strategy"],
         imageLink: "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/e1/50f62ac50546298c4da05330de8c87/juleswhite_3d_colorful_volumeric_organic_rounded_vibrant_highly_d24865d4-62ca-4b62-b441-8ce48374c34b.png?auto=format%2C%20compress%2C%20enhance&dpr=1&w=320&h=180&fit=crop&q=50",
-        type: "Specialization"
+        type: "Specialization",
+        videoLink: "https://www.youtube.com/embed/NRmAXDWJVnU?si=5d25Ntp_tMh4hwx_"
     },
     {
         id: 8,
@@ -77,7 +84,8 @@ export const courses = [
         price: 19.99,
         categories: ["Development", "Data Science", "Machine Learning"],
         imageLink: "https://img-c.udemycdn.com/course/240x135/950390_270f_3.jpg",
-        type: "Course"
+        type: "Course",
+        videoLink: "https://www.youtube.com/embed/cF44HwKgZ2E?si=C6S57kPrlVEt1eeO"
     },
     {
         id: 9,
@@ -87,7 +95,8 @@ export const courses = [
         price: 19.99,
         categories: ["Web Development", "Software Development"],
         imageLink: "https://img-c.udemycdn.com/course/240x135/625204_436a_3.jpg",
-        type: "Course"
+        type: "Course",
+        videoLink: "https://www.youtube.com/embed/S7MyHChb8-E?si=1uwLyIUVKT2drmx8"
     },
     {
         id: 10,
@@ -97,6 +106,7 @@ export const courses = [
         price: 19.99,
         categories: ["Programming Languages", "Software Development", "React JS"],
         imageLink: "https://img-c.udemycdn.com/course/240x135/1362070_b9a1_2.jpg",
-        type: "Course"
+        type: "Course",
+        videoLink: "https://www.youtube.com/embed/bEGKkORrSXw?si=ud9nIQUc5ZgvlNFl"
     },
-]
+];
