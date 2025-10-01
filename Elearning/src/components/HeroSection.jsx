@@ -20,7 +20,7 @@ const HeroSection = () => {
         </div>
 
         <NavLink
-          to="/courses"
+          to="/login"
           className="inline-block px-6 sm:px-8 md:px-10 py-2 sm:py-3 text-base sm:text-lg md:text-lg font-semibold text-white bg-[#1B5241] rounded-lg shadow-lg 
                      transition-all duration-300 hover:bg-[#A05525]"
         >

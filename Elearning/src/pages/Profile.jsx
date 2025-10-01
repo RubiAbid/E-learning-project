@@ -27,7 +27,7 @@ const Profile = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#FFEDE1]">
+    <div className="bg-[#FFEDE1]">
       {/* header */}
       <div className="header container flex justify-between items-center gap-4 py-2">
         <h2 className="text-xl sm:text-3xl font-bold text-[#1B5241]">
@@ -43,31 +43,32 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="container my-8">
-        <h4 className="text-[#245241] mb-4 text-xl font-semibold">Enrolled Courses</h4>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {enrolledCourses.length > 0 ? (
-            enrolledCourses.map((course, index) => {
-              if (!course) return null;
-              const { imageLink, title, instructor, id } = course;
+      <div className="container user-courses pb-4">
+        <h4 className="text-[#245241] text-xl font-medium py-4">Enrolled Courses</h4>
+        {enrolledCourses.length ? (
+          <div className="courses-grid">
+            {enrolledCourses.map((course, index) => {
+              const { id, imageLink, instructor, title, type } = course;
               return (
-                <Link
-                  key={index}
-                  to={`/course-video/${id}`} // link to video page
-                  className="block border rounded-lg shadow hover:shadow-lg transition overflow-hidden"
-                >
-                  <img src={imageLink} alt={title} className="w-full h-48 object-cover" />
-                  <div className="p-4 bg-white">
-                    <h5 className="font-bold text-lg">{title}</h5>
-                    <p className="text-gray-600">{instructor}</p>
-                  </div>
-                </Link>
-              );
-            })
-          ) : (
-            <p className="text-center font-bold text-xl mt-10">No courses enrolled yet.</p>
-          )}
-        </div>
+                <div key={index} className="course-card">
+                  <Link to={`/course-video/${id}`}>
+                    <img src={imageLink} alt="" className="course-image" />
+                    <div className="course-card-content">
+                      <p className="course-instructor">{instructor}</p>
+                      <h5 className="course-title">{title}</h5>
+                      <p className="course-type">{type}</p>
+                    </div>
+                  </Link>
+                </div>
+              )
+            })}
+          </div>
+        ) : (
+          <div className="min-h-[calc(100vh-320px)] flex flex-col gap-4 justify-center items-center">
+            <h5 className="text-xl font-medium">You have not enrolled any courses yet!</h5>
+            <button className="border bg-[#A05525] rounded-lg px-4 py-2 text-white font-semibold hover:bg-[#a05425e5] hover:text-white transition cursor-pointer mb-[60px]" onClick={() => navigate("/courses")}>Browse Courses</button>
+          </div>
+        )}
       </div>
     </div>
   );

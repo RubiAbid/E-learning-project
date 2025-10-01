@@ -14,9 +14,8 @@ import CourseDetails from "./pages/courseDetails/CourseDetails";
 import FAQ from "./pages/FAQ";
 import ScrollToTop from "./components/ScrollToTop";
 import Teaching from "./pages/Teaching";
+// import Dashboard from "./pages/Dashboard";
 import CourseVideo from "./pages/CourseVideo";
-
-
 
 function App() {
   return (
@@ -28,8 +27,9 @@ function App() {
           <Routes>
             {/* ✅ Protected Routes */}
             <Route element={<PrivateRoutes />}>
-  <Route path="/profile" element={<Profile />} />
-  <Route path="/course-video/:id" element={<CourseVideo />} />
+              <Route path="/profile" element={<Profile />} />
+              {/* <Route path="/dashboard/:id" element={<Dashboard />} /> */}
+              <Route path="/course-video/:id" element={<CourseVideo />} />
 
               {/* <Route path="/courses" element={<CourseCatalog />} /> */}
               {/* <Route path="/course/:id" element={<CourseDetails />} /> */}

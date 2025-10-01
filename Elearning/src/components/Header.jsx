@@ -6,6 +6,7 @@ import { useState } from "react";
 const Header = () => {
   const navigate = useNavigate();
   const { user, logoutUser } = useAuth();
+  // console.log(user.$id)
   const [menuOpen, setMenuOpen] = useState(false);
 
   const linkStyle = "font-bold transition-colors duration-300";
@@ -59,7 +60,7 @@ const Header = () => {
 
           {user ? (
             <NavLink
-              to="/profile"
+              to={`/profile`}
               className={({ isActive }) =>
                 isActive
                   ? `${linkStyle} text-[#004F35]`
@@ -70,7 +71,7 @@ const Header = () => {
             </NavLink>
           ) : (
             <>
-              <NavLink
+              {/* <NavLink
                 to="/teaching"
                 className={({ isActive }) =>
                   isActive
@@ -79,7 +80,7 @@ const Header = () => {
                 }
               >
                 Teaching
-              </NavLink>
+              </NavLink> */}
 
               <NavLink
                 to="/register"
